@@ -4,9 +4,11 @@ A macOS launcher for an **already configured third-party Claude Desktop**.
 Configuration belongs to `claude-config`: Bootstrap checks an explicit Machine,
 applies the same reviewed plan, then asks macOS to open the bound application.
 
-Bootstrap source and its Dock application builder live in **claudespace** as a
-local utility. It is not a skill or plugin. App preferences live in an **App
-Profile** in `claude-config-data`; local paths live in a **Machine** file.
+Bootstrap source and its Dock application builder live in the independent
+[claude-desktop-bootstrap repository](https://github.com/LKCY23/claude-desktop-bootstrap).
+Claudespace pins this repository as the `apps/claude-desktop-bootstrap` submodule.
+It is not a skill or plugin. App preferences live in an **App Profile** in
+`claude-config-data`; local paths live in a **Machine** file.
 Provider configuration, credentials and deployment mode remain with Desktop and
 CC Switch.
 
@@ -141,6 +143,9 @@ folder, normally `<config_dir>/.state/reports/`.
 
 ## Download a fixed version
 
+Published 2.0.0 and 2.0.1 releases remain in claudespace for reproducibility.
+Future releases are built in this repository; see [release operations](docs/releases.md).
+
 Download `claude-desktop-bootstrap-2.0.1.tar.gz` from the
 [Bootstrap 2.0.1 Release](https://github.com/LKCY23/claudespace/releases/tag/bootstrap-v2.0.1),
 then extract it on the target Mac:
@@ -225,7 +230,17 @@ still points at them. This refactor can be prepared in a separate worktree and
 activated only when the target machine is ready. Official local deployment does
 not need to change for source work or isolated tests.
 
-## Tests
+## Development and tests
+
+Use `~/claude-desktop-bootstrap` as the development checkout. The copy in
+`~/claudespace/apps/claude-desktop-bootstrap` pins an adopted commit; update it
+explicitly after publishing changes to this repository. See
+[repository migration](docs/repository-migration.md) for the history mapping.
+
+For our machines, MacBook is the development host; run tests and build or use
+the third-party launcher on **Mac mini**. Do not install the launcher on the
+MacBook, which uses official Claude. The following commands run on the test
+Mac after transferring a fixed source revision:
 
 ```sh
 python3 -B -m unittest discover -s tests -v

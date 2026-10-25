@@ -8,3 +8,9 @@ __pycache__/
 
 # Generated local preview, not an icon source.
 /app/icon-preview.png
+
+# Local development and migration records.
+.DS_Store
+.pytest_cache/
+.framework/
+.local-archive/

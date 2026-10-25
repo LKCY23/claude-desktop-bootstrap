@@ -16,7 +16,7 @@ For an alternative graphical entry point, create a **normal shortcut** in Shortc
 with a **Run Shell Script** action, using this command (adjust the checkout path):
 
 ```bash
-"$HOME/claudespace/claude-desktop-bootstrap/launch.command" --machine /absolute/path/third-party-machine.yaml
+"$HOME/claude-desktop-bootstrap/launch.command" --machine /absolute/path/third-party-machine.yaml
 ```
 
 Use that shortcut instead of the original Claude icon, for example from the Dock
